@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Menu, Sprout, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { env } from "@/lib/env";
 
 const links = [
   { href: "#fitur", label: "Fitur" },
@@ -35,9 +36,17 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
-          <Button variant="ghost" size="sm">Masuk</Button>
-          <Button size="sm" className="bg-gradient-cta text-primary-foreground hover:opacity-95">
-            Mulai Gratis
+          <Button 
+            variant="ghost" 
+            size="sm"
+          >
+            Masuk ke Desa Saya
+          </Button>
+          <Button 
+            size="sm" 
+            className="bg-gradient-cta text-primary-foreground hover:opacity-95"
+          >
+            Daftar Desa
           </Button>
         </div>
 
@@ -59,8 +68,21 @@ export function SiteHeader() {
               </a>
             ))}
             <div className="flex gap-2 pt-2">
-              <Button variant="outline" size="sm" className="flex-1">Masuk</Button>
-              <Button size="sm" className="flex-1 bg-gradient-cta text-primary-foreground">Mulai Gratis</Button>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="flex-1"
+                onClick={() => window.location.href = env.auth.loginUrl}
+              >
+                Masuk ke Desa Saya
+              </Button>
+              <Button 
+                size="sm" 
+                className="flex-1 bg-gradient-cta text-primary-foreground"
+                onClick={() => window.location.href = env.auth.registerUrl}
+              >
+                Daftar Desa
+              </Button>
             </div>
           </div>
         </div>

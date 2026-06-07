@@ -46,6 +46,7 @@ import barn from "@/assets/barn.jpg";
 import caseBudi from "@/assets/case-budi.jpg";
 import caseSiti from "@/assets/case-siti.jpg";
 import caseOfficial from "@/assets/case-official.jpg";
+import { env } from "@/lib/env";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -133,7 +134,9 @@ function Hero() {
           </p>
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <Button size="lg" className="bg-gradient-cta text-primary-foreground shadow-soft hover:opacity-95">
+            <Button size="lg" className="bg-gradient-cta text-primary-foreground shadow-soft hover:opacity-95"
+            onClick={() => window.location.href = env.auth.loginUrl}
+            >
               Mulai Uji Coba Gratis
               <ArrowRight className="h-4 w-4" />
             </Button>
