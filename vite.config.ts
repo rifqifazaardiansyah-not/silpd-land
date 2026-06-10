@@ -12,4 +12,13 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  vite: {
+    server: {
+      host: '0.0.0.0',
+      port: 3000,
+      strictPort: true, // Fail if port 3000 is already in use
+      // Tambahkan konfigurasi di bawah ini:
+      allowedHosts: ['silpd.test'],
+    },
+  },
 });
